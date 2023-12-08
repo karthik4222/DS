@@ -40,7 +40,7 @@ void add_edge(struct graph* g,int i,int j)
     temp->next=g->adjlist[i];
     g->adjlist[i]=temp;
 }
-void bfs(struct graph* g,int v)
+void dfs(struct graph* g,int v)
 {
     struct node* temp=g->adjlist[v];
     g->visited[v]=1;
@@ -50,7 +50,7 @@ void bfs(struct graph* g,int v)
         int connected=temp->vertice;
         if(g->visited[connected]==0)
         {
-            bfs(g,connected);
+            dfs(g,connected);
         }
         temp=temp->next;
     }
